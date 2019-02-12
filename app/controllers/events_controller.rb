@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+
 	def index
 		@events = Event.all.sort
 	end
@@ -10,7 +11,10 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		@event = Event.new(title: params[:title], description: params[:description], start_date: params[:start_date], duration: params[:duration], location: params[:location], price: params[:price], user: current_user)
+
+
+		@event = Event.new(title: params[:title], description: params[:description], start_date: convert_date(params[:event]), duration: params[:duration], location: params[:location], price: params[:price], user_id: current_user.id)
+		puts params[:start_date]
 		puts @event.user
 		puts @event.title
 		puts @event.description

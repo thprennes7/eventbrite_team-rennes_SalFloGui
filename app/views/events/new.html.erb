@@ -1,4 +1,4 @@
-<h1>Créé ton évènement ici :</h1>
+<h1>Crée  ton évènement ici :</h1>
 
 <%= form_tag(events_path, method: 'post') do %>
 <%= label_tag('title', 'Titre', class:"") %>
@@ -11,7 +11,7 @@
 <%= text_field_tag('location', nil, class:"") %>
 <%= label_tag('start_date', 'Date de début', class:"") %>
 <%# <%= text_field_tag('start_date', nil, class:"") %>
-<%= datetime_select("user", "start_date") %>
+<%= datetime_select("event", "start_date") %>
 <%= label_tag('duration', 'Durée', class:"") %>
 <%= text_field_tag('duration', nil, class:"") %>
 
