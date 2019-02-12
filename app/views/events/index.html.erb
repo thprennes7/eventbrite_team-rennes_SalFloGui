@@ -5,7 +5,7 @@
 	<% @events.each do |event| %>
 	<div class="col-3">
 		<div class="card mb-4">
-			<h5 class="card-title"><%= event.title %></h5>
+			<%= link_to "#{event.title}", event_path(event.id), class: "card-title"%>
 		</div>
 	</div>
 	<% end %>

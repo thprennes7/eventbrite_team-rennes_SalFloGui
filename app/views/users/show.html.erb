@@ -1,0 +1,17 @@
+<h1>Ton profil :</h1>
+
+<p>Prénom : <%= @user.first_name %></p>
+<p>Nom : <%= @user.last_name %></p>
+<p>Email : <%= @user.email %></p>
+<p>Description : <%= @user.description %></p>
+<%= link_to "Editer le profil", edit_user_registration_path(@user.id) %>
+
+<div class="card-deck">
+	<% @events.each do |event| %>
+	<div class="col-3">
+		<div class="card mb-4">
+			<%= link_to "#{event.title}", event_path(event.id), class: "card-title"%>
+		</div>
+	</div>
+	<% end %>
+</div>
