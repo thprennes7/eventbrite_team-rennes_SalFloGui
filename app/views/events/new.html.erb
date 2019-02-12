@@ -1,0 +1,18 @@
+<h1>Créé ton évènement ici :</h1>
+
+<%= form_tag(events_path, method: 'post') do %>
+<%= label_tag('title', 'Titre', class:"") %>
+<%= text_field_tag('title', nil, class:"") %>
+<%= label_tag('description', 'Description', class:"") %>
+<%= text_area_tag('description', nil, class:"") %>
+<%= label_tag('price', 'Prix', class:"") %>
+<%= text_field_tag('price', nil, class:"") %>
+<%= label_tag('location', 'Lieu', class:"") %>
+<%= text_field_tag('location', nil, class:"") %>
+<%= label_tag('start', 'Date de début', class:"") %>
+<%= text_field_tag('start', nil, class:"") %>
+<%= label_tag('duration', 'Durée', class:"") %>
+<%= text_field_tag('duration', nil, class:"") %>
+
+<%= submit_tag('Créer', class:"") %>
+<% end -%>

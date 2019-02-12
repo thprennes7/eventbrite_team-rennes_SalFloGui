@@ -1,0 +1,12 @@
+<h1>Voici tous les évenements passé et à venir ! :</h1>
+
+
+<div class="card-deck">
+	<% @events.each do |event| %>
+	<div class="col-3">
+		<div class="card mb-4">
+			<h5 class="card-title"><%= event.title %></h5>
+		</div>
+	</div>
+	<% end %>
+</div>
