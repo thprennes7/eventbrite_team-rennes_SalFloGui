@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Attendance, type: :model do
 
   before(:each) do
-    @event = FactoryBot.create(:event)
     @user = FactoryBot.create(:user)
+    @event = FactoryBot.create(:event)
     @attendance = FactoryBot.create(:attendance)
   end
 
