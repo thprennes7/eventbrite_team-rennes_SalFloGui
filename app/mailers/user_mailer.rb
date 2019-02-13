@@ -2,13 +2,16 @@ class UserMailer < ApplicationMailer
   default from: 'no-reply@monsite.fr'
 
   def welcome_email(user)
-    #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user
-    @user = user
+    from = Email.new(email: 'https://eventbrite-guhurak.herokuapp.com/')
+		to = Email.new(email: @user.mailer)
+		subject = 'Binevenue'
+		content = Content.new(type: 'text/plain', value: 'and easy to do anywhere, even with Ruby')
+		mail = Mail.new(from, subject, to, content)
 
-    #on définit une variable @url qu'on utilisera dans la view d’e-mail
-    @url  = 'http://monsite.fr/login'
-
-    # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
-    mail(to: @user.email, subject: 'Bienvenue chez nous !')
+		sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
+		response = sg.client.mail._('send').post(request_body: mail.to_json)
+		puts response.status_code
+		puts response.body
+		puts response.headers
   end
 end
