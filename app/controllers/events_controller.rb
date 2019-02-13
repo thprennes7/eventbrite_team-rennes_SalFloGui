@@ -29,8 +29,4 @@ class EventsController < ApplicationController
 			render :new
 		end
 	end
-
-	def event_params
-		params.permit(:title, :description, :start_date, :duration, :location)
-	end
 end
