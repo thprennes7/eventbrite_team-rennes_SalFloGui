@@ -1,6 +1,6 @@
 <h1>Crée  ton évènement ici :</h1>
 
-<%= form_tag(events_path, method: 'post') do %>
+<%= form_tag(events_path, method: 'post', id: "new_event") do %>
 <%= label_tag('title', 'Titre', class:"") %>
 <%= text_field_tag('title', nil, class:"") %>
 <%= label_tag('description', 'Description', class:"") %>

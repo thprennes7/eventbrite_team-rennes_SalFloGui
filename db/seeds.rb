@@ -11,7 +11,7 @@
 #User.destroy_all
 
 10.times do
-  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, description: Faker::HitchhikersGuideToTheGalaxy.quote, password: "bonjour")
+  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: "#{Faker::Lorem.word}@yopmail.com", description: Faker::HitchhikersGuideToTheGalaxy.quote, password: "bonjour")
 end
 
 10.times do

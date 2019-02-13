@@ -10,5 +10,5 @@
 <% if current_user != @creator && check_attendant_user != true %>
 <%= link_to "S'inscrire", new_event_charge_path(@event.id), class:"" %>
 <% elsif current_user == @creator %>
-<%= link_to "Liste des participants", event_attendances_path(@event.id), class:"" %>
+<%= link_to "Gestion de l'évènement", event_attendances_path(@event.id), class:"" %>
 <% end -%>
