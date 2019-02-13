@@ -2,6 +2,23 @@ require 'rails_helper'
 
 RSpec.describe "events/show.html.erb", type: :view do
   context 'when diplaying an event' do
+    it "shows the button when is the creator" do
+      @user = FactoryBot.create(:user)
+      @event = FactoryBot.create(:event)
+      @attendance = FactoryBot.create(:attendance)
+      # assign(:event, @event)
+      @creator = @event.user
+      @participants = @event.users
+
+      def is_linked_to?(user)
+        false
+      end
+
+      render
+
+      expect(rendered).to match /Gestion de l'évènement/
+    end
+
     it 'hides the button when not connected' do
       @user = FactoryBot.create(:user)
       @event = FactoryBot.create(:event)
@@ -9,6 +26,7 @@ RSpec.describe "events/show.html.erb", type: :view do
       # assign(:event, @event)
       @creator = @event.user
       @participants = @event.users
+
       def is_linked_to?(user)
         false
       end
