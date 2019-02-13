@@ -7,8 +7,8 @@
 <p><%= @event.location %></p>
 <p>Prix : <%= @event.price %> €</p>
 
-<% if is_linked_to?(@creator) %>
+<% if is_not_linked_to?(@creator) %>
 <%= link_to "S'inscrire", new_event_charge_path(@event.id), class:"" %>
-<% elsif current_user == @creator %>
+<% elsif  is_creator?(@creator) %>
 <%= link_to "Gestion de l'évènement", event_attendances_path(@event.id), class:"" %>
 <% end -%>
