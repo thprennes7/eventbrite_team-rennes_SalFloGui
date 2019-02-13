@@ -18,3 +18,14 @@
 <%= submit_tag('Editer', class:"") %>
 <% end %>
 <%= button_to "Supprimer", event_path(@event), data: {confirm: 'Es-tu sûr(e) ?'}, method: :delete %>
+
+<% if @event.errors.any? %>
+          <div class="alert alert-warning mt-2" role="alert">
+            <p>Nous navons pas réussi à créer d'event pour la (ou les) raison(s) suivante(s) :</p>
+              <ul>
+                <% @event.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+              <p>Merci de réessayer</p>
+        <% end %>

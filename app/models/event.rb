@@ -10,7 +10,11 @@ class Event < ApplicationRecord
 
 	def duration_mutliple_of_5
 		@duration = self.duration
-		errors.add(:duration, "Doit être un multiple de 5") unless @duration % 5 == 0
+		if @duration != nil
+			errors.add(:duration, "Doit être un multiple de 5") unless @duration % 5 == 0
+		else
+			errors.add(:duration, "doit être rempli")
+		end
 	end
 
 	def end_date

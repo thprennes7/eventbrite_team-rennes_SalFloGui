@@ -13,14 +13,14 @@
 <%# <%= text_field_tag('start_date', nil, class:"") %>
 <%= datetime_select("event", "start_date") %>
 <%= label_tag('duration', 'Durée', class:"") %>
-<%= text_field_tag('duration', nil, class:"") %>
+<%= text_field_tag('duration', 0, class:"") %>
 
 <%= submit_tag('Créer', class:"") %>
 <% end -%>
 
 <% if @event.errors.any? %>
           <div class="alert alert-warning mt-2" role="alert">
-            <p>Nous navons pas réussi à créer d'utilisateur pour la (ou les) raison(s) suivante(s) :</p>
+            <p>Nous navons pas réussi à créer d'event pour la (ou les) raison(s) suivante(s) :</p>
               <ul>
                 <% @event.errors.full_messages.each do |message| %>
                   <li><%= message %></li>
