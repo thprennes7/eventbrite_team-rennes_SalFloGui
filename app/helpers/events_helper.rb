@@ -11,4 +11,9 @@ module EventsHelper
   		end
   	end
   end
+
+  def is_linked_to?(creator)
+		current_user != creator && check_attendant_user != true
+	end
+  
 end
