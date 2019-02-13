@@ -9,4 +9,6 @@ class UsersController < ApplicationController
     redirect_to user_path(current_user.id) unless is_current_user?(@user)
   end
 
+  def destroy
+  end
 end
